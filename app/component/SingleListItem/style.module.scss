@@ -1,0 +1,31 @@
+.default__img{
+    width: 100%;
+    height: 104px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(200, 200, 200);
+    color: black;
+    margin-top: 0;
+    margin: 0 ;
+    border-radius: 10px;
+   
+}
+.item{
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    background: #1E1E1E;
+    height: 100%;
+    max-height: 230px;
+
+    
+
+    &__title{
+        font-size: 16px;
+        margin-top: 10px;
+        font-weight:600;
+
+    }
+}

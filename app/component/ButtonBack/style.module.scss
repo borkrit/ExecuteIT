@@ -1,0 +1,14 @@
+.btn{
+    &__back{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+
+        width: 100px;
+        padding: 10px 0;
+        background: black;
+        border: 1px solid black;
+        color:white;
+        cursor: pointer;
+    }
+}

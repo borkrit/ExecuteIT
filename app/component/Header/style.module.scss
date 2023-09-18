@@ -1,0 +1,17 @@
+.navigation{
+    background: #000;
+    color: #fff;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding-block: 20px;
+
+    
+        a{
+            &:hover{
+                color: red;
+            }
+        }
+        
+
+}

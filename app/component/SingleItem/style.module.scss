@@ -1,0 +1,35 @@
+.article{
+    position: relative;
+
+    &__header{
+        height:300px;
+        background: linear-gradient(red, blue, yellow, green);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__links{
+        display: flex;
+        gap: 15px;
+
+        div{
+            a{
+                &:hover{
+                    color:rgb(131, 191, 205)
+                }
+            }
+
+            &:not(:last-child){
+                border-right: 1px solid black;
+                padding-right: 10px;
+            }
+        }
+    }
+
+    &__information{
+        padding-inline: 2%;
+
+        margin-top: 10px;
+    }
+}
