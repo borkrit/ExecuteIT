@@ -2,10 +2,12 @@ import React from 'react'
 import ButtonBack from '../ButtonBack'
 import style from './style.module.scss'
 
+
 const SingleItem = ({data}) => {
-  console.log(data)
   return (
-    <article className={style.article}>
+    <>
+      <article className={style.article}>
+      
         <ButtonBack />
         <div className={style.article__header}>
         <h1>
@@ -34,6 +36,8 @@ const SingleItem = ({data}) => {
         </div>
 
       </article>
+      </>
+    
   )
 }
 
