@@ -7,38 +7,43 @@ import SingleListItem from './component/SingleListItem'
 
  const Loads = ({list}) => {
     const [lanch, setLanch] = useState(chunkArray(list,15))
-    const [LanchesList, setLanchesList] =useState([]);
+    const [lanchesList, setLanchesList] =useState([]);
     const [page, setPage] = useState(0)
 
     const refItem = useRef()
-
+    
     useEffect(()=>{
-        if(LanchesList.length == 0 ) {
+        if(lanchesList.length == 0 ) {
             setLanchesList(lanch[page])
         }
     },[])
   
     useEffect(()=>{
         if( page < lanch.length ){
-            setLanchesList([...LanchesList,lanch[page]])
+            setLanchesList([...lanchesList,lanch[page]])
         }
     },[page])
 
    
     useEffect(()=>{
-        const l = ()=>{
-                    if(window.scrollY > refItem.current.scrollHeight-refItem.current.scrollHeight/2){
-                        setPage(prev=> prev+1)
-
-                    }
-        }
-
-        window.addEventListener('scroll',l)
-
-
-        return () => window.removeEventListener('scroll',l)
-
-
+        const handleScroll = () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = Math.max(
+              document.body.scrollHeight,
+              document.documentElement.scrollHeight
+            );
+            const scrollPosition = window.scrollY;
+          
+            if (documentHeight - (scrollPosition + windowHeight) <= 200) {
+              setPage((prev) => prev + 1);
+            }
+          };
+          
+          window.addEventListener("scroll", handleScroll);
+          
+          return () => {
+            window.removeEventListener("scroll", handleScroll);
+          };
 
     },[])
     
@@ -46,11 +51,9 @@ import SingleListItem from './component/SingleListItem'
     return (
     <div className={styles.wrapper} ref={refItem}>
         {
-            LanchesList && LanchesList.map(lists=>(
+            lanchesList && lanchesList.map(lists=>(
                 lists.map((item)=>(
-                    <>
                         <SingleListItem item={item} key={item.id}  /> 
-                    </>
                 ))
              ))
         }
